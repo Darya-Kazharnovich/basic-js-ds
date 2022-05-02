@@ -23,27 +23,27 @@ class Queue {
   }
 
   enqueue(value) {
-    let node = this.node; // список
+    let node = this.node; // указатель на этот узел
     while (node.next) { // пока есть куда двигаться
-      node = node.next; // переходим на следующий элемент
+      node = node.next; // переходим на следующий элемент (перешли к конечному)
     }
-    if(node.value) { // 
-      node.next = new ListNode(value); //
+    if(node.value) { // если у конечного узла есть значение
+      node.next = new ListNode(value); // создаем следующее новое значение
     }
-    else { //
-      node.value = value; //
+    else { // если нет значения
+      node.value = value; // конечный принимает значение
     }
   }
 
   dequeue() {
-    const node = this.node; //
-    if (this.node.next) { //
-      this.node = this.node.next; //
+    const node = this.node; // текущий
+    if (node.next) { // если есть следующий элемент
+      this.node = this.node.next; // следующий становится такущим
     }
-    else {
-      this.node = new ListNode(); //
+    else { //  если нет
+      node = new ListNode(); //  новый станет текущим
     }
-    return node.value; //
+    return node.value; // возвратим значение удаленного узла
   }
 }
 
