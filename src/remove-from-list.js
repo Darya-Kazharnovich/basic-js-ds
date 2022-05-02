@@ -31,7 +31,7 @@ function removeKFromList(l, k) {
     if (now.next.value === k) { // если следубщее значение равно к
       now.next = now.next.next // следующее = следющее+следующее (перепрыгиваем)
     } else { // если не равно
-      now = now.next // сменили текущее на следующее следующее
+      now = now.next // сменили текущее на следующее
     }
   }
   return l;

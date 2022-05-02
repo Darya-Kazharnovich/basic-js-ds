@@ -68,9 +68,37 @@ class BinarySearchTree {
     }
   }
 
-  remove(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  remove(data) {
+    this.origin = removeData(this.origin, data) // заполним значением из функции
+    function removeData(node, data) {
+      if (!node) { // если нет узла
+        return null; // возвратим ноль
+      }
+      if (data < node.data) { // если данные меньше данных узла
+        node.left = removeData(node.left, data) // левое значение
+        return node;
+      } else if (data > node.data) {
+        node.right = removeData(node.right, data) 
+        return node;
+      } else {
+        if (!node.left && !node.right) { // если по сторонам ничего нет 
+          return null
+        }
+        if (!node.left) { // если нет левого
+          return node = node.right
+        }
+        if (!node.right) { // если нет правого
+          return node = node.left
+        }
+        let max = node.left;
+        while (max.right) {
+          max = max.right;
+        }
+        node.data = max.data;
+        node.left = removeData(node.left, max.data);
+        return node;
+      }
+    }
   }
 
   min() {
