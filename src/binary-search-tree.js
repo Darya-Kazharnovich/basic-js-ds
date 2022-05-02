@@ -72,7 +72,7 @@ class BinarySearchTree {
     this.origin = removeData(this.origin, data) // заполним значением из функции
     function removeData(node, data) {
       if (!node) { // если нет узла
-        return null; // возвратим ноль
+        return null; // возвратим null
       }
       if (data < node.data) { // если данные меньше данных узла
         node.left = removeData(node.left, data) // левое значение
